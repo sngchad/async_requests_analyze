@@ -1,6 +1,8 @@
 import asyncio
+import platform
 
-asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+if platform.system().lower() in ('windows', 'win'):
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 from testing_requests import (
     async_native as an,
